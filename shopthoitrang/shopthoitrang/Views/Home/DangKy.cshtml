@@ -1,0 +1,39 @@
+﻿@model shopthoitrang.Models.Khachhang
+@{
+    ViewBag.Title = "DangKy";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts{
+    <script>
+        $(function () {
+            $('#AlertBox').removeClass('hide');
+            $('#AlertBox').delay(2000).slideUp(500);
+        });
+    </script>
+}
+
+@if (TempData["AlertMessage"] != null)
+{
+    <div id="AlertBox" class="alert @TempData["AlertType"] hide" role="alert">
+        @TempData["AlertMessage"]
+    </div>
+}
+
+<h2>Đăng ký</h2>
+
+<form action="/Home/XLDK" method="post">
+    <input type="text" name="txtten" placeholder="Tên khách hàng" /><br />
+    <input type="text" name="txtkh" placeholder="Tên đăng nhập" /><br />
+    <input type="password" name="txtpass" placeholder="Mật khẩu" /><br />
+    Giới tính<br />
+    <input type="radio" name="gioitinh" value="Nam" checked /> Nam <br />
+    <input type="radio" name="gioitinh" value="Nữ" /> Nữ <br />
+    <input type="text" name="txtdt" placeholder="Điện thoại" /><br />
+    <input type="date" name="ngaysinh" /><br />
+    <input type="text" name="txtemail" placeholder="Email" /><br />
+    <input type="text" name="txtdiachi" placeholder="Địa chỉ" /><br />
+    
+    <input type="submit" value="Đăng ký" />
+</form>
+

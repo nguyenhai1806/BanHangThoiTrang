@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        ul {
+        }
+
+            ul li {
+                margin-right: 5px;
+            }
+
+                ul li a {
+                    text-decoration: none;
+                }
+
+                    ul li a:hover {
+                        background-color: red;
+                    }
+    </style>
+</head>
+@using shopthoitrang.Models
+<body>
+    <div class="row bg-dark">
+        <div class="col-md-9 col-12 d-flex justify-content-center">
+            <ul class="nav">
+                <li>
+                    <a href="/Home/TrangChu" class="nav-link text-white">Trang chủ</a>
+                </li>
+                <li>
+                    <a href="/Home/LienHe" class="nav-link text-white">Liên hệ</a>
+                </li>
+                <li>
+                    <a href="/Home/LichSuMuaHang" class="nav-link text-white">Lịch sử mua hàng</a>
+                </li>
+                @if (Session["khachhang"] == null)
+                {
+                    <li>
+                        <a href="/Home/DangKy" class="nav-link text-white">Đăng ký</a>
+                    </li>
+                    <li>
+                        <a href="/Home/DangNhap" class="nav-link text-white">Đăng nhập</a>
+                    </li>
+                }
+                <li>
+                    <a href="/Home/HTGioHang" class="nav-link text-white">
+                        <img src="~/Content/Images/carts.png" width="15" height="15" />
+                        Giỏ hàng
+                        (
+                        @{
+                            GioHang g = Session["gio"] as GioHang;
+                            if (g != null)
+                            {
+                                <span>@g.SoMatHang()</span>
+                            }
+                            else
+                            {
+                                <span>0</span>
+                            }
+                        }
+                        )<br />
+                    </a>
+                </li>
+                @{
+                    if (Session["khachhang"] != null)
+                    {
+                        var k = Session["khachhang"] as Khachhang;
+                        <li class="text-white">
+                            <img src="~/Content/Images/profile.png" width="20" height="20" />
+                            Chào bạn, @k.Hoten
+                        </li>
+                        <li>
+                            <a href="/Home/DangXuat" class="nav-link text-white">
+                                <img src="~/Content/Images/off.png" width="20" height="20" />
+                                Đăng xuất
+                            </a>
+                        </li>
+                    }
+                }
+            </ul>
+        </div>
+        <div class="col-md-3 col-12">
+            <form action="/Home/XuLyTK" method="post">
+                <input type="text" name="txtSearch" placeholder="Tìm kiếm sản phẩm..." />
+                <input type="submit" value="Search"/>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 col-12">
+            <p><b>DANH MỤC SẢN PHẨM</b></p>
+            @Html.Action("HTLoaiHang", "Home")
+        </div>
+        <div class="col-md-9 col-12">
+            @RenderBody()
+        </div>
+    </div>
+    <div class="container">
+
+
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+    <link href="~/Content/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Content/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/Content/jquery-3.3.1.min.js"></script>
+</body>
+</html>

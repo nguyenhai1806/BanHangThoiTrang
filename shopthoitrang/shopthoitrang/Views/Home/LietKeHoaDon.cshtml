@@ -1,0 +1,18 @@
+﻿@using shopthoitrang.Models
+@model List<Chitiet>
+
+<table>
+    <tr>
+        <td>Tên hàng</td>
+        <td>Đơn giá</td>
+        <td>Số lượng</td>
+    </tr>
+    @foreach (var ct in Model)
+    {
+        <tr>
+            <td>@ct.Sanpham.Tensanpham</td>
+            <td>@ct.Sanpham.Gia</td>
+            <td>@ct.Sanpham.Soluong</td>
+        </tr>
+    }
+</table>

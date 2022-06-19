@@ -1,0 +1,89 @@
+﻿
+@{
+    ViewBag.Title = "HTGioHang";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using shopthoitrang.Models
+@model GioHang
+
+@helper Truncate(string input, int length)
+{
+    if (input.Length < length)
+    {
+        @input
+    }
+    else
+    {
+        @input.Substring(0, length)<text>..</text>
+    }
+}
+
+<h2></h2>
+@if (Model == null || Model.SoMatHang() == 0)
+{
+<div class="col-lg-12">
+    <div style="text-align: center;min-width: 50%;max-width:100%; font-size: 20px; display: inline-block; top: 0;left: 0;bottom: 0;right: 0;position: absolute;margin:30%;">
+        <p>
+            <h5><b>GIỎ HÀNG</b></h5>
+        </p>
+        <p>
+            Bạn không có sản phẩm nào trong giỏ hàng!
+        </p>
+        <p>
+            @Html.ActionLink("Tiếp tục mua sắm", "TrangChu")
+        </p>
+    </div>
+</div>
+}
+else
+{
+    <h2>Thông tin giỏ hàng đã chọn</h2>
+    <table class="table">
+        <tr>
+            <td>Tên hàng</td>
+            @*<td>Mô tả</td>*@
+            <td>Hình ảnh</td>
+            <td>Giá</td>
+            <td>Số lượng</td>
+            <td>Thành tiền</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        @foreach (CartItem item in Model.lst)
+        {
+            <tr>
+                <td>@item.sTenSanPham</td>
+                @*<td>@Truncate(item.sMota, 30)</td>*@
+                <td><img src="~/Content/Images/@item.sHinhAnh" width="100" height="100" /></td>
+                <td>@item.fGia</td>
+                <td>@item.iSoLuong</td>
+                <td>@item.ThanhTien</td>
+                <td>
+                    @Html.ActionLink("Chi tiết mặt hàng", "ChiTiet", "Home", new { id = @item.iMaSanPham }, new { @class = "btn btn-danger" })
+                </td>
+                <td>
+                    @Html.ActionLink("Xóa", "Xoa1MatHang", "Home", new { id = @item.iMaSanPham }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+        <tr>
+            <td colspan="3">Tổng</td>
+            <td class="text-danger">@Model.TongSLHang()</td>
+            <td></td>
+            <td class="text-danger">@String.Format("{0:#,##}", Model.TongThanhTien()) đ</td>            
+        </tr>        
+    </table>
+    <table class="table">
+        <tr>
+            <td></td>
+            <td><a href="/Home/XoaGioHang" class="btn btn-danger">Xóa giỏ hàng</a></td>
+            <td></td>
+            <td>
+                @Html.ActionLink("Đặt hàng", "XacNhanThongTin", "Home", new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    </table>
+}
+

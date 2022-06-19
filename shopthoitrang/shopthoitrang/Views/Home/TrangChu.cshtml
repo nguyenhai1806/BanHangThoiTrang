@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "TrangChu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using shopthoitrang.Models
+@model List<Sanpham>
+<h2></h2>
+@functions{
+    public string GioiHanChu(string text)
+    {
+        if (text.Length > 17)
+            return text = text.Substring(0, 17) + "...";
+        return text;
+    }
+}
+<div class="product-group">
+    <div class="row">
+        @if (Model.Count == 0)
+        {
+            <text>Không tìm thấy sản phẩm</text>
+        }
+
+        @foreach (var mh in Model)
+        {
+            if (mh.Soluong > 0)
+            {
+                <div class="col-lg-3 card mr-2 mt-2">
+                <div class="card-product">
+                    <a href="/Home/ChiTiet?id=@mh.Masanpham">
+                        <img class="card-img-top" height="200" width="200" src="~/Content/Images/@mh.Hinhanh" alt="Ảnh sản phẩm" />
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">@GioiHanChu(mh.Tensanpham)</h5><br />
+                        <h6 class="text-danger">@String.Format("{0:0,0}", mh.Gia) VNĐ</h6>
+
+                        @*@Html.ActionLink("Chi tiết", "ChiTiet", "Home", new { id = @mh.Masanpham }, new { @class = "btn btn-danger" })*@
+
+                        @if (mh.Soluong <= 0)
+                        {
+                            <text>Hết hàng</text>
+                        }
+                        @*else
+                        {
+                            @Html.ActionLink("Chọn", "ChonMua", "Home", new { id = @mh.Masanpham }, new { @class = "btn btn-danger" })
+                        }*@
+                    </div>
+                </div>
+            </div>
+            }
+        }
+    </div>
+</div>
+<script src="~/Content/bootstrap/js/bootstrap.min.js"></script>
+<script src="~/Content/jquery-3.3.1.min.js"></script>
+

@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "ThongKeBanHang";
+    Layout = "~/Views/Shared/_LayoutQuanLy.cshtml";
+}
+@using shopthoitrang.Models
+@model List<ThongKeDoanhThu>
+
+<h2>Thống kê bán hàng</h2>
+<table class="table">
+    <tr>
+        <td>Ngày</td>
+        <td>Tổng tiền</td>
+    </tr>
+    @foreach (ThongKeDoanhThu tk in Model)
+    {
+        <tr>
+            <td>@tk.Ngay</td>
+            <td>@tk.TongTien</td>
+        </tr>
+    }
+</table>
+

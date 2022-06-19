@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "DangNhap";
+    Layout = "~/Views/Shared/_LayoutQuanLy.cshtml";
+}
+
+<h2>Đăng nhập</h2>
+
+@section scripts{
+    <script>
+        $(function () {
+            $('#AlertBox').removeClass('hide');
+            $('#AlertBox').delay(2000).slideUp(500);
+        });
+    </script>
+}
+
+@if (TempData["AlertMessage"] != null)
+{
+    <div id="AlertBox" class="alert @TempData["AlertType"] hide" role="alert">
+        @TempData["AlertMessage"]
+    </div>
+}
+
+<form action="/QuanLy/XLDN" method="post">
+    <input type="text" name="txtnv" placeholder="Tên đăng nhập" /><br />
+    <input type="password" name="txtpass" placeholder="Mật khẩu" /><br />
+    <input type="submit" value="Đăng nhập" />
+</form>
+

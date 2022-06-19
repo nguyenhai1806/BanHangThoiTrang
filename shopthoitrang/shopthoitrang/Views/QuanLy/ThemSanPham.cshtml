@@ -1,0 +1,93 @@
+﻿@model shopthoitrang.Models.Sanpham
+
+@{
+    ViewBag.Title = "ThemSanPham";
+    Layout = "~/Views/Shared/_LayoutQuanLy.cshtml";
+}
+
+<h2>ThemSanPham</h2>
+@if (TempData["AlertMessage"] != null)
+{
+    <h4>@TempData["AlertMessage"]</h4>
+}
+
+@using (Html.BeginForm("Them", "QuanLy", FormMethod.Post, new { enctype = "multipart/form-data" })) 
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    
+    <fieldset>
+        <legend></legend>
+
+        <div class="editor-label">
+            @*@Html.LabelFor(model => model.MaLoai)*@
+            <b>Loại sản phẩm:</b>
+        </div>
+        <div class="editor-field">
+            @*@Html.EditorFor(model => model.MaLoai)
+                @Html.ValidationMessageFor(model => model.MaLoai)*@
+            @Html.DropDownList("MaLoai")
+        </div>
+
+        <div class="editor-label">
+            @*@Html.LabelFor(model => model.MaLoai)*@
+            <b>Nhà sản xuất:</b>
+        </div>
+        <div class="editor-field">
+            @*@Html.EditorFor(model => model.MaLoai)
+            @Html.ValidationMessageFor(model => model.MaLoai)*@
+            @Html.DropDownList("Manhasx")
+        </div>
+
+        <div class="editor-label">
+            @*@Html.LabelFor(model => model.TenHang)*@
+            <b>Tên sản phẩm:</b>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Tensanpham)
+            @Html.ValidationMessageFor(model => model.Tensanpham)
+        </div>
+
+        <div class="editor-label">
+            @*@Html.LabelFor(model => model.HinhAnh)*@
+            <b>Hình ảnh:</b>
+        </div>
+        <div class="editor-field">
+            @*@Html.EditorFor(model => model.HinhAnh)
+                @Html.ValidationMessageFor(model => model.HinhAnh)*@
+            <input type="file" name="upHinh" />
+        </div>
+
+        <div class="editor-label">
+            @*@Html.LabelFor(model => model.Gia)*@
+            <b>Giá:</b>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Gia)
+            @Html.ValidationMessageFor(model => model.Gia)
+        </div>
+
+        <div class="editor-label">
+            @*@Html.LabelFor(model => model.Gia)*@
+            <b>Số lượng:</b>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Soluong)
+            @Html.ValidationMessageFor(model => model.Soluong)
+        </div>
+
+        <p>
+            <input type="submit" value="Thêm" class="btn btn-success" />
+        </p>
+    </fieldset>
+}
+
+<script src="~/Content/tinymce/js/tinymce/tinymce.min.js"></script>
+<script> tinymce.init({ selector: 'textarea' });</script>
+<div>
+    @Html.ActionLink("VỀ TRANG SẢN PHẨM", "SanPham", "QuanLy")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

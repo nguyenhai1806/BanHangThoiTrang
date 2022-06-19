@@ -1,0 +1,31 @@
+﻿@model shopthoitrang.Models.Chitietsanpham
+
+@{
+    ViewBag.Title = "ChiTietSanPham";
+    Layout = "~/Views/Shared/_LayoutQuanLy.cshtml";
+}
+
+<h2>Thông tin chi tiết sản phẩm</h2>
+<fieldset>
+
+    <div class="container">
+        <div class="row">
+            <table class="table">
+                <tr>
+                    <td><b>Mã sản phẩm</b></td>
+                    <td>@Html.DisplayFor(model => model.Masanpham)</td>
+                </tr>
+                <tr>
+                    <td><b>Mô tả</b></td>
+                    <td>@Html.DisplayFor(model => model.Chitietsanpham1)</td>
+                   
+                </tr>
+            </table>
+        </div>
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Sửa", "SuaChiTietSanPham", new { id = Model.Masanpham }) |
+    @Html.ActionLink("Trở về trang sản phẩm", "SanPham")
+</p>
+
