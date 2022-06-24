@@ -60,7 +60,7 @@ namespace shopthoitrang.Models
     #endregion
 		
 		public DataClasses1DataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["QLSHOPTHOITRANGConnectionString1"].ConnectionString, mappingSource)
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["QLSHOPTHOITRANGConnectionString2"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}

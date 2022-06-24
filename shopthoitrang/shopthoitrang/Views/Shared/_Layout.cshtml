@@ -6,48 +6,37 @@
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-    <style>
-        ul {
-        }
-
-            ul li {
-                margin-right: 5px;
-            }
-
-                ul li a {
-                    text-decoration: none;
-                }
-
-                    ul li a:hover {
-                        background-color: red;
-                    }
-    </style>
 </head>
 @using shopthoitrang.Models
 <body>
-    <div class="row bg-dark">
-        <div class="col-md-9 col-12 d-flex justify-content-center">
+    <header class="row bg-light">
+        <div class="col-md-2 d-flex logo">
+            <a href="/Home/TrangChu">
+                <img src="~/Content/Images/icon/Logo.png" alt="Logo Canifa" width="80" height="80" />
+            </a>
+        </div>
+        <div class="col-md-7 d-flex">
             <ul class="nav">
                 <li>
-                    <a href="/Home/TrangChu" class="nav-link text-white">Trang chủ</a>
+                    <a href="/Home/TrangChu" class="nav-link text-dark text-bold">Trang chủ</a>
                 </li>
                 <li>
-                    <a href="/Home/LienHe" class="nav-link text-white">Liên hệ</a>
+                    <a href="/Home/LienHe" class="nav-link text-dark text-bold">Liên hệ</a>
                 </li>
                 <li>
-                    <a href="/Home/LichSuMuaHang" class="nav-link text-white">Lịch sử mua hàng</a>
+                    <a href="/Home/LichSuMuaHang" class="nav-link text-dark text-bold">Lịch sử mua hàng</a>
                 </li>
                 @if (Session["khachhang"] == null)
                 {
                     <li>
-                        <a href="/Home/DangKy" class="nav-link text-white">Đăng ký</a>
+                        <a href="/Home/DangKy" class="nav-link text-dark text-bold">Đăng ký</a>
                     </li>
                     <li>
-                        <a href="/Home/DangNhap" class="nav-link text-white">Đăng nhập</a>
+                        <a href="/Home/DangNhap" class="nav-link text-dark text-bold">Đăng nhập</a>
                     </li>
                 }
                 <li>
-                    <a href="/Home/HTGioHang" class="nav-link text-white">
+                    <a href="/Home/HTGioHang" class="nav-link text-dark text-bold">
                         <img src="~/Content/Images/carts.png" width="15" height="15" />
                         Giỏ hàng
                         (
@@ -83,30 +72,81 @@
                 }
             </ul>
         </div>
-        <div class="col-md-3 col-12">
-            <form action="/Home/XuLyTK" method="post">
-                <input type="text" name="txtSearch" placeholder="Tìm kiếm sản phẩm..." />
-                <input type="submit" value="Search"/>
+        <div class="col-md-3 col-3 d-flex">
+            <form action="/Home/XuLyTK" id="cover" method="post">
+                <div class="form-search input-group">
+                    <input type="search" class="search__textbox" name="txtSearch" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                    <button class="search__button">
+                        <img src="~/Content/Images/icon/icons_search.svg" alt="Logo search" width="30px" height="30px" />
+                    </button>
+                </div>
             </form>
         </div>
-    </div>
+    </header>
     <div class="row">
-        <div class="col-md-3 col-12">
+        <div class="col-md-3 col-12 sidebar">
             <p><b>DANH MỤC SẢN PHẨM</b></p>
             @Html.Action("HTLoaiHang", "Home")
         </div>
-        <div class="col-md-9 col-12">
+        <div class="col-md-9 col-12 ">
             @RenderBody()
         </div>
     </div>
-    <div class="container">
 
-
-    </div>
+    <footer class="row footer bg-dark">
+        <div class="col-md-4">
+            <table class="table-sm">
+                <tr class="footer_menu">
+                    <td class="footer_menu">CÔNG TY CỔ PHẦN CANIFA</td>
+                </tr>
+                <tr>
+                    <td>Địa chỉ cửa hàng: 140 Lê Trọng Tấn, Tân Phú, TP.HCM</td>
+                </tr>
+                <tr>
+                    <td> Email: canifa@gmail.com</td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-md-4">
+            <table class="table-sm">
+                <tr class="footer_menu">
+                    <td>THƯƠNG HIỆU</td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="#">Giới thiệu</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="/Home/LienHe">Liên hệ</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-md-4">
+            <table class="table-sm">
+                <tr class="footer_menu">
+                    <td>MẠNG XÃ HỘI</td>
+                </tr>
+                <tr>
+                    <td>
+                        <ul>
+                            <li><a href="#"> <img src="~/Content/Images/icon/icons8_Facebook.svg" class="footer__logo" alt="Facebook logo" /> </a></li>
+                            <li><a href="#"> <img src="~/Content/Images/icon/icons8_YouTube.svg" class="footer__logo" alt="Youtube logo" /> </a></li>
+                            <li><a href="#"> <img src="~/Content/Images/icon/icons8_Zalo_1.svg" class="footer__logo" alt="Zalo logo" /> </a></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </footer>
 
     @Scripts.Render("~/bundles/jquery")
     @RenderSection("scripts", required: false)
     <link href="~/Content/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/css/cssLayout.css" rel="stylesheet" />
+    <link href="~/Content/css/cssReset.css" rel="stylesheet" />
     <script src="~/Content/bootstrap/js/bootstrap.min.js"></script>
     <script src="~/Content/jquery-3.3.1.min.js"></script>
 </body>

@@ -1,0 +1,61 @@
+﻿body {
+    margin: 0 1rem 0 1rem;
+}
+.text-bold{
+    font-weight: 700;
+}
+.form-search{
+    border: #ffc79c 1px solid;
+    border-radius: 2rem;
+    padding: 5px;
+    overflow: hidden;
+    background-color: white;
+}
+header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.search__textbox, .search__textbox::after{
+    border: 0;
+    outline: 0;
+    overflow: hidden;
+    background-color: inherit;
+}
+.search__button, .search__button:focus{
+    border: 0;
+    outline: 0;
+    overflow: hidden;
+    background-color: inherit;
+}
+footer{
+    color: white;
+}
+.footer_menu{
+    font-weight: 700;
+}
+footer ul{
+    display: inline;
+}
+footer ul li{
+    display: inline;
+    padding: 5px;
+}
+.footer__logo{
+    width: 30px;
+    height: 30px;
+}
+
+table{
+  border-spacing: 30px;
+}
+.table-noneborder{
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 1rem;
+}
+.footer a, .footer a:focus{
+    text-decoration: none;
+    color: inherit;
+}
