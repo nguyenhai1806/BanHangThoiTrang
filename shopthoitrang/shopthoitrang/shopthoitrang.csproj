@@ -192,6 +192,7 @@
     <Content Include="Content\css\cssLogin.css" />
     <Content Include="Content\css\cssReset.css" />
     <Content Include="Content\Images\carts.png" />
+    <Content Include="Content\Images\icon\cart.svg" />
     <Content Include="Content\Images\icon\facebook_cover_photo_1.png" />
     <Content Include="Content\Images\icon\facebook_cover_photo_2.png" />
     <Content Include="Content\Images\icon\facebook_profile_image.png" />

@@ -21,6 +21,7 @@
                     <div class="dropdown">
                         <button class="dropdownbtn nav-link text-bold">
                             DANH MỤC SP
+                            <i class="bi bi-caret-down-fill"></i>
                         </button>
                         @Html.Action("HTLoaiHang", "Home")
                     </div>
@@ -42,7 +43,7 @@
                 }
                 <li>
                     <a href="/Home/HTGioHang" class="nav-link text-dark text-bold">
-                        <img src="~/Content/Images/carts.png" width="15" height="15" />
+                        <img src="~/Content\Images\icon\cart.svg" width="15" height="15" />
                         Giỏ hàng
                         (
                         @{
@@ -92,8 +93,9 @@
     <div class="container" style="clear:both">
             @RenderBody()
     </div>
-    <footer class="row footer bg-dark">
-        <div class="col-md-4">
+    <footer class="row footer">
+        <div class="col-md-1"></div>
+        <div class="col-md-5">
             <table class="table-sm">
                 <tr class="footer_menu">
                     <td class="footer_menu">CÔNG TY CỔ PHẦN CANIFA</td>
@@ -106,7 +108,7 @@
                 </tr>
             </table>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <table class="table-sm">
                 <tr class="footer_menu">
                     <td>THƯƠNG HIỆU</td>
@@ -123,7 +125,7 @@
                 </tr>
             </table>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <table class="table-sm">
                 <tr class="footer_menu">
                     <td>MẠNG XÃ HỘI</td>

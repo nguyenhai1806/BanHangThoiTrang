@@ -20,11 +20,24 @@
     </div>
 }
 
-<div class="login center">
+<div class="login center ">
+    <h1 class="login__tittle">ĐĂNG NHẬP</h1>
     <form action="/Home/XLDN" method="post">
-        <input type="text" name="txtkh" placeholder="Tên đăng nhập" class="form_text"/><br />
-        <input type="password" name="txtpass" placeholder="Mật khẩu" class="form_text"/><br />
-        <input type="submit" value="Đăng nhập" />
+        <div class="form-group form-inline">
+            <div class="col-1"></div>
+            <label class="col-4 form-label ">Tên đăng nhập</label>
+            <input type="text" name="txtkh" placeholder="" class="form_text form-control col-7" />
+        </div>
+        <div class="form-group form-inline">
+            <div class="col-1"></div>
+            <label class="form-label col-4" style="text-align:left">Mật khẩu</label>
+            <input type="password" name="txtpass" placeholder="" class="form_text form-control col-7" />
+        </div>
+        <div class="form-inline">
+            <div class="col-5"></div>
+            <input type="submit" class="login_button btn col-7 " value="Đăng nhập" />
+        </div>
+        
     </form>
 </div>
 
