@@ -1,10 +1,8 @@
-﻿
+﻿<link href="~/Content/css/cssLogin.css" rel="stylesheet" />
 @{
     ViewBag.Title = "DangNhap";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>Đăng nhập</h2>
 
 @section scripts{
     <script>
@@ -22,9 +20,12 @@
     </div>
 }
 
-<form action="/Home/XLDN" method="post">
-    <input type="text" name="txtkh" placeholder="Tên đăng nhập" /><br />
-    <input type="password" name="txtpass" placeholder="Mật khẩu" /><br />
-    <input type="submit" value="Đăng nhập" />
-</form>
+<div class="login center">
+    <form action="/Home/XLDN" method="post">
+        <input type="text" name="txtkh" placeholder="Tên đăng nhập" class="form_text"/><br />
+        <input type="password" name="txtpass" placeholder="Mật khẩu" class="form_text"/><br />
+        <input type="submit" value="Đăng nhập" />
+    </form>
+</div>
+
 

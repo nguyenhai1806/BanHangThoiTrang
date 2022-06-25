@@ -1,12 +1,8 @@
 ﻿@using shopthoitrang.Models
 @model List<Loaisanpham>
-
-<h2></h2>
-<ul class="nav flex-column">
+<div class="dropdown-content">
     @foreach (var lh in Model)
     {
-        <li>
-            @Html.ActionLink(@lh.Tenloai, "HTTheoLoaiHang", "Home", new { id = @lh.Maloai }, new { @class = "nav-link text-dark" })
-        </li>
+        <a href="@Url.Action("HTTheoLoaiHang","Home",new { id = @lh.Maloai })" role="menuitem">@lh.Tenloai</a>
     }
-</ul>
+</div>

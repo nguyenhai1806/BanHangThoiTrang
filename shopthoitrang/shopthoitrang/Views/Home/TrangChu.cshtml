@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "TrangChu";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -25,10 +24,10 @@
         {
             if (mh.Soluong > 0)
             {
-                <div class="col-lg-3 card mr-2 mt-2">
+                <div class="col-lg-2 col-md-3 card mr-2 mt-2">
                 <div class="card-product">
                     <a href="/Home/ChiTiet?id=@mh.Masanpham">
-                        <img class="card-img-top" height="200" width="200" src="~/Content/Images/@mh.Hinhanh" alt="Ảnh sản phẩm" />
+                        <img class="card-img-top" height="200" width="150" src="~/Content/Images/@mh.Hinhanh" alt=@String.Format("Ảnh sản phẩm  {0}", mh.Tensanpham) />
                     </a>
                     <div class="card-body">
                         <h5 class="card-title">@GioiHanChu(mh.Tensanpham)</h5><br />

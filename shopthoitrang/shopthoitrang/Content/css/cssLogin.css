@@ -1,0 +1,13 @@
+﻿.login{
+    background-color: azure;
+    width: auto;
+    height: auto;
+}
+.center {
+    padding: 10px;
+    position: absolute;
+    right: 50%;
+    left: 50%;
+    top: 50%;
+    bottom: 50%;
+}
